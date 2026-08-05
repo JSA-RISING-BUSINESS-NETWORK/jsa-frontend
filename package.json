@@ -13,6 +13,8 @@
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
+  "lint": "eslint .",
+  "preview": "vite preview",
   "test": "jest --passWithNoTests"
   },
   "dependencies": {
