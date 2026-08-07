@@ -1,0 +1,193 @@
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Code2,
+  Globe2,
+  Layers3,
+  Search,
+  ShoppingCart,
+  Sparkles,
+} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Button } from '../components/Button'
+
+const capabilities = [
+  {
+    title: 'Websites & web platforms',
+    description: 'High-performing digital foundations that make your offer easier to understand and trust.',
+    icon: Globe2,
+  },
+  {
+    title: 'Apps & custom products',
+    description: 'Useful digital products shaped around your customers, internal workflows, and growth goals.',
+    icon: Code2,
+  },
+  {
+    title: 'E-commerce experiences',
+    description: 'Clear journeys from discovery to checkout, with the structure to support repeatable sales.',
+    icon: ShoppingCart,
+  },
+  {
+    title: 'SEO & discoverability',
+    description: 'Search-ready content and technical foundations that help the right audience find you.',
+    icon: Search,
+  },
+]
+
+const deliverySteps = [
+  ['01', 'Clarify', 'We align the digital opportunity with your business priorities and audience.'],
+  ['02', 'Design', 'We turn the strategy into a clear, credible experience your customers can use.'],
+  ['03', 'Deliver', 'We build, test, launch, and improve the system with disciplined delivery.'],
+]
+
+export function DigitalSolutionsPage() {
+  return (
+    <main className="bg-brand-cream">
+      <section className="relative isolate overflow-hidden bg-brand-navy pb-24 pt-36 text-brand-cream sm:pb-28 sm:pt-44">
+        <div className="pointer-events-none absolute right-[-12rem] top-[-12rem] size-[32rem] rounded-full border border-brand-gold/15" aria-hidden="true" />
+        <div className="pointer-events-none absolute bottom-[-14rem] left-[-10rem] size-[28rem] rounded-full border border-white/8" aria-hidden="true" />
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-8">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold">
+              Service pillar / 01
+            </p>
+            <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[0.95] text-brand-cream sm:text-7xl">
+              Digital solutions that move the business forward.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+              Websites, apps, e-commerce, SEO, and UI/UX for modern brands that need a sharper
+              digital presence and a stronger path to growth.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button to="/contact" variant="primary">
+                Start a conversation
+                <ArrowRight className="size-5" aria-hidden="true" />
+              </Button>
+              <Link
+                to="#capabilities"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-bold text-white/72 transition hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
+              >
+                Explore the offer
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl border border-white/12 bg-white/6 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:p-7">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-brand-gold">
+                  Digital delivery system
+                </p>
+                <p className="mt-2 text-xl font-black text-white">Clarity into capability.</p>
+              </div>
+              <span className="inline-flex size-11 items-center justify-center rounded-full bg-brand-gold text-brand-navy">
+                <Sparkles className="size-5" aria-hidden="true" />
+              </span>
+            </div>
+            <div className="mt-5 space-y-3">
+              {['Position the brand', 'Build the experience', 'Measure the outcome'].map(
+                (item, index) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/6 px-4 py-4"
+                  >
+                    <span className="flex items-center gap-3 text-sm font-bold text-white/86">
+                      <span className="text-[0.65rem] tracking-[0.18em] text-brand-gold">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      {item}
+                    </span>
+                    <ArrowUpRight className="size-4 text-white/40" aria-hidden="true" />
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" className="border-b border-brand-border bg-white py-24 sm:py-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold-dark">
+              What we deliver
+            </p>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-brand-navy sm:text-5xl">
+              The digital layer your growth strategy needs.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-brand-slate">
+              One connected capability across the places your customers discover, evaluate, and
+              choose your business.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-x-8 sm:grid-cols-2">
+            {capabilities.map((capability, index) => {
+              const Icon = capability.icon
+
+              return (
+                <article
+                  key={capability.title}
+                  className="group border-t border-brand-border py-7 transition duration-300 hover:-translate-y-1 hover:border-brand-gold motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="text-xs font-black tracking-[0.18em] text-brand-gold-dark">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="inline-flex size-10 items-center justify-center rounded-full bg-brand-gold-soft text-brand-navy transition group-hover:bg-brand-gold motion-reduce:transition-none">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <h3 className="mt-7 text-xl font-black text-brand-navy">{capability.title}</h3>
+                  <p className="mt-3 max-w-md text-sm leading-6 text-brand-slate">
+                    {capability.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-cream py-24 sm:py-28">
+        <div className="mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-20 lg:px-8">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold-dark">
+              How we work
+            </p>
+            <h2 className="mt-4 text-4xl font-black leading-tight text-brand-navy sm:text-5xl">
+              Clear steps. Useful momentum.
+            </h2>
+          </div>
+          <div className="border-y border-brand-border">
+            {deliverySteps.map(([number, title, description]) => (
+              <div key={number} className="grid gap-4 border-b border-brand-border py-7 last:border-b-0 sm:grid-cols-[4rem_10rem_1fr] sm:items-start sm:gap-6">
+                <span className="text-xs font-black tracking-[0.18em] text-brand-gold-dark">{number}</span>
+                <h3 className="text-lg font-black text-brand-navy">{title}</h3>
+                <p className="max-w-xl text-sm leading-6 text-brand-slate">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-navy py-20 text-brand-cream sm:py-24">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold">
+              Ready when you are
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight sm:text-4xl">
+              Bring your next digital opportunity into focus.
+            </h2>
+          </div>
+          <Button to="/contact" variant="primary">
+            Get In Touch
+            <ArrowRight className="size-5" aria-hidden="true" />
+          </Button>
+        </div>
+      </section>
+    </main>
+  )
+}

@@ -1,6 +1,5 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { lazy, Suspense } from 'react'
-import { Link } from 'react-router-dom'
 import { Badge } from '../components/Badge'
 import { Card } from '../components/Card'
 import { SectionHeading } from '../components/SectionHeading'
@@ -8,7 +7,6 @@ import { ValueProp } from '../components/ValueProp'
 import { HeroPanel } from '../components/hero/HeroPanel'
 import {
   heroStats,
-  operatingModel,
   servicePillars,
   techBadges,
   valueProps,
@@ -18,6 +16,18 @@ import {
 const HeroFuturistic = lazy(() =>
   import('../components/ui/hero-futuristic').then((module) => ({
     default: module.HeroFuturistic,
+  })),
+)
+
+const WhyChooseUsScene = lazy(() =>
+  import('../components/ui/why-choose-us-scene').then((module) => ({
+    default: module.WhyChooseUsScene,
+  })),
+)
+
+const TechnologyScene = lazy(() =>
+  import('../components/ui/technology-scene').then((module) => ({
+    default: module.TechnologyScene,
   })),
 )
 
@@ -105,62 +115,127 @@ export function Home() {
           </div>
 
           <HeroPanel
-            operatingModel={operatingModel}
             pillars={servicePillars.map((service) => ({
               number: service.number,
               title: service.title,
+              description: service.description,
+              icon: service.icon,
               href: `/services/${service.slug}`,
             }))}
           />
         </div>
       </section>
 
-      <section className="flex min-h-svh snap-start items-center bg-brand-navy py-28 text-white sm:py-32 lg:py-36">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <section
+        className="relative isolate flex min-h-svh snap-start items-center overflow-hidden border-y border-white/10 bg-brand-navy py-28 text-white sm:py-32 lg:py-36"
+        aria-labelledby="why-choose-us-title"
+      >
+        <Suspense fallback={null}>
+          <WhyChooseUsScene />
+        </Suspense>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-20">
             <SectionHeading
+              id="why-choose-us-title"
               eyebrow="Why choose us"
               title="A dependable partner for serious business growth."
               description="JSA Rising combines strategic advisory, delivery capability, and cloud-era operational thinking."
               variant="dark"
             />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {whyChooseUs.map((item) => (
-                <div key={item.title} className="rounded-lg border border-white/10 bg-white/7 p-5">
-                  <ValueProp {...item} variant="dark" />
-                </div>
-              ))}
+            <div className="grid gap-x-8 sm:grid-cols-2">
+              {whyChooseUs.map((item, index) => {
+                const Icon = item.icon
+
+                return (
+                  <article
+                    key={item.title}
+                    className="group border-t border-white/14 py-7 transition duration-300 hover:-translate-y-1 hover:border-brand-gold/70 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex size-10 items-center justify-center rounded-full border border-brand-gold/30 bg-brand-gold/10 text-brand-gold transition duration-300 group-hover:bg-brand-gold group-hover:text-brand-navy motion-reduce:transition-none">
+                          <Icon className="size-5" strokeWidth={2} aria-hidden="true" />
+                        </span>
+                        <ArrowUpRight
+                          className="size-5 text-white/45 transition duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-gold motion-reduce:transition-none"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="mt-8 text-xl font-bold leading-tight text-brand-cream">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-sm text-sm leading-6 text-white/70">
+                      {item.description}
+                    </p>
+                  </article>
+                )
+              })}
             </div>
           </div>
         </div>
       </section>
 
       <section
-        className="flex min-h-svh snap-start items-center border-y border-brand-border bg-brand-cream py-28 sm:py-32 lg:py-36"
-        aria-label="Technology expertise"
+        className="relative isolate flex min-h-svh snap-start items-center overflow-hidden border-y border-brand-border bg-brand-cream py-28 sm:py-32 lg:py-36"
+        aria-labelledby="technology-expertise-title"
       >
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+        <Suspense fallback={null}>
+          <TechnologyScene />
+        </Suspense>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-20 lg:px-8">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-brand-gold-dark">
               Technology expertise
             </p>
-            <h2 className="mt-3 text-4xl font-black leading-tight text-brand-navy sm:text-6xl">
+            <h2
+              id="technology-expertise-title"
+              className="mt-3 max-w-2xl text-4xl font-black leading-[1.05] text-brand-navy sm:text-6xl"
+            >
               Credibility across modern cloud delivery.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-brand-slate">
               The site should look like the standard JSA sells: structured, fast, secure, and
               technically serious.
             </p>
+            <div className="mt-10 flex max-w-md items-center gap-4 border-t border-brand-border pt-5">
+              <span className="h-px w-10 bg-brand-gold" aria-hidden="true" />
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-brand-slate">
+                Built for dependable delivery
+              </p>
+            </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {techBadges.map((badge) => (
-              <div
-                key={badge}
-                className="rounded-lg border border-brand-border bg-white p-6 text-2xl font-black text-brand-navy shadow-sm"
-              >
-                {badge}
-              </div>
-            ))}
+          <div>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-brand-gold-dark">
+                Core technology stack
+              </p>
+              <p className="text-xs font-semibold text-brand-slate">04 capabilities</p>
+            </div>
+            <div className="border-y border-brand-border">
+              {techBadges.map((badge, index) => (
+                <div
+                  key={badge}
+                  className="group flex min-h-24 items-center justify-between gap-6 border-b border-brand-border py-5 transition duration-300 last:border-b-0 hover:bg-white/60 motion-reduce:transition-none"
+                >
+                  <div className="flex min-w-0 items-center gap-5">
+                    <span className="text-xs font-black tracking-[0.18em] text-brand-gold-dark">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="truncate text-2xl font-black text-brand-navy sm:text-3xl">
+                      {badge}
+                    </span>
+                  </div>
+                  <ArrowUpRight
+                    className="size-5 shrink-0 text-brand-slate transition duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-gold motion-reduce:transition-none"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
