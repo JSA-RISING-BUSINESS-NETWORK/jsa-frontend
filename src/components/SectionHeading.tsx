@@ -21,7 +21,7 @@ export function SectionHeading({
     <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
       {eyebrow ? (
         <p
-          className={`mb-3 text-sm font-bold uppercase tracking-[0.16em] ${
+          className={`mb-3 text-xs font-black uppercase tracking-[0.2em] ${
             isDark ? 'text-brand-gold' : 'text-brand-gold-dark'
           }`}
         >
@@ -30,7 +30,7 @@ export function SectionHeading({
       ) : null}
       <h2
         id={id}
-        className={`text-3xl font-bold leading-tight sm:text-4xl ${
+        className={`text-4xl font-black leading-tight sm:text-5xl ${
           isDark ? 'text-white' : 'text-brand-navy'
         }`}
       >

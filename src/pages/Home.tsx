@@ -31,6 +31,18 @@ const TechnologyScene = lazy(() =>
   })),
 )
 
+const ValuePropsScene = lazy(() =>
+  import('../components/ui/value-props-scene').then((module) => ({
+    default: module.ValuePropsScene,
+  })),
+)
+
+const ServicePillarsScene = lazy(() =>
+  import('../components/ui/service-pillars-scene').then((module) => ({
+    default: module.ServicePillarsScene,
+  })),
+)
+
 export function Home() {
   return (
     <main id="main-content">
@@ -61,9 +73,12 @@ export function Home() {
 
       <section
         id="value-props"
-        className="flex min-h-svh snap-start items-center bg-brand-cream py-28 sm:py-32 lg:py-36"
+        className="relative isolate flex min-h-svh snap-start items-center overflow-hidden bg-brand-cream py-28 sm:py-32 lg:py-36"
       >
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Suspense fallback={null}>
+          <ValuePropsScene />
+        </Suspense>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <SectionHeading
               eyebrow="What clients can expect"
@@ -90,9 +105,12 @@ export function Home() {
 
       <section
         id="service-pillars"
-        className="flex min-h-svh snap-start items-center overflow-hidden bg-white py-28 sm:py-32 lg:py-36"
+        className="relative isolate flex min-h-svh snap-start items-center overflow-hidden bg-white py-28 sm:py-32 lg:py-36"
       >
-        <div className="mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:px-8">
+        <Suspense fallback={null}>
+          <ServicePillarsScene />
+        </Suspense>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:px-8">
           <div>
             <SectionHeading
               eyebrow="Services"

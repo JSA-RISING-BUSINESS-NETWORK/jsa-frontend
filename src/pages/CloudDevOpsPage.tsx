@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/Button'
+import { ServiceScene } from '../components/ServiceScene'
 
 const capabilities = [
   {
@@ -43,6 +44,7 @@ export function CloudDevOpsPage() {
   return (
     <main className="bg-brand-cream">
       <section className="relative isolate overflow-hidden bg-brand-navy pb-24 pt-36 text-brand-cream sm:pb-28 sm:pt-44">
+        <ServiceScene variant="cloud" />
         <div className="pointer-events-none absolute right-[-12rem] top-[-12rem] size-[32rem] rounded-full border border-brand-gold/15" aria-hidden="true" />
         <div className="pointer-events-none absolute bottom-[-14rem] left-[-10rem] size-[28rem] rounded-full border border-white/8" aria-hidden="true" />
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-8">

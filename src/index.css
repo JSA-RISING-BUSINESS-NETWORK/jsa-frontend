@@ -5,6 +5,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  Typography scale — apply these Tailwind utility combinations consistently
+  rather than picking one-off sizes:
+  - Eyebrow/label:       text-xs font-black uppercase tracking-[0.2em]
+  - Display (hero h1):   text-5xl font-black leading-[0.95] sm:text-7xl
+                          (homepage hero adds lg:text-8xl for extra scale)
+  - Heading (section h2): text-4xl font-black leading-tight sm:text-5xl
+  - Subheading (h3):     text-lg font-black sm:text-xl
+  - Body, lead:          text-lg leading-8 sm:text-xl
+  - Body, default:       text-sm leading-6 sm:text-base sm:leading-7
+*/
+
 @theme {
   --color-brand-navy: #0b1b33;
   --color-brand-navy-light: #16293f;
@@ -141,6 +153,13 @@ html {
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+  Unused: the site has no theme toggle, so .dark is never applied and these
+  generic shadcn grayscale values never render. Kept only so the installed
+  shadcn "button" primitive (src/components/ui/button.tsx) keeps a valid
+  dark: fallback if it's ever wired up. If a real dark mode ships, replace
+  these with brand-consistent values instead of the shadcn defaults below.
+*/
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
