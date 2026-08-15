@@ -1,8 +1,9 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float } from '@react-three/drei'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import type { Group } from 'three'
-import * as THREE from 'three'
+import { brandColors } from '@/lib/brand-colors'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
 
 function NetworkForm({ reducedMotion }: { reducedMotion: boolean }) {
   const groupRef = useRef<Group>(null)
@@ -22,11 +23,11 @@ function NetworkForm({ reducedMotion }: { reducedMotion: boolean }) {
       <group ref={groupRef} rotation={[0.25, 0.35, 0.1]}>
         <mesh>
           <icosahedronGeometry args={[1.7, 2]} />
-          <meshBasicMaterial color="#deb13b" transparent opacity={0.22} wireframe />
+          <meshBasicMaterial color={brandColors.gold} transparent opacity={0.22} wireframe />
         </mesh>
         <mesh scale={1.16}>
           <icosahedronGeometry args={[1.7, 1]} />
-          <meshBasicMaterial color="#b8c2d0" transparent opacity={0.12} wireframe />
+          <meshBasicMaterial color={brandColors.muted} transparent opacity={0.12} wireframe />
         </mesh>
       </group>
     </Float>
@@ -34,17 +35,7 @@ function NetworkForm({ reducedMotion }: { reducedMotion: boolean }) {
 }
 
 export function WhyChooseUsScene() {
-  const [reducedMotion, setReducedMotion] = useState(false)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateMotionPreference = () => setReducedMotion(mediaQuery.matches)
-
-    updateMotionPreference()
-    mediaQuery.addEventListener('change', updateMotionPreference)
-
-    return () => mediaQuery.removeEventListener('change', updateMotionPreference)
-  }, [])
+  const reducedMotion = useReducedMotion()
 
   return (
     <div

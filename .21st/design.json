@@ -365,6 +365,21 @@
       "date": "2026-08-05",
       "scope": "service-pillars",
       "decision": "Use a white-theme adaptation of the 21st.dev DisplayCards pattern for the service pillars: nine wide cards in one centered vertical stack, no surrounding panel background, with clear service metadata and hover/focus bringing the selected card forward."
+    },
+    {
+      "date": "2026-08-07",
+      "scope": "service-detail-scenes",
+      "decision": "Use restrained, lazy-loaded Three.js wireframe scenes behind service hero content. Each pillar gets a domain-specific form, scenes are hidden on smaller screens, and reduced-motion preferences disable movement."
+    },
+    {
+      "date": "2026-08-09",
+      "scope": "three-js-coverage",
+      "decision": "Extend the existing restrained wireframe/ambient Three.js language to every remaining section that had none: a 'contact' wireframe variant (converging signal rings) for the Contact page hero, and new low-opacity ambient scenes (value-props-scene, service-pillars-scene) for the homepage value-props and service-pillars sections. Sections that already had a scene (hero, why-choose-us, technology, footer, per-service heroes) were left as-is. Shared reduced-motion detection and material colors were extracted into src/lib/use-reduced-motion.ts and src/lib/brand-colors.ts so every scene stays consistent."
+    },
+    {
+      "date": "2026-08-09",
+      "scope": "design-system-cleanup",
+      "decision": "Unified the homepage SectionHeading component onto the same heading/eyebrow scale already used by every service and sector page (text-4xl/5xl font-black leading-tight headings, text-xs font-black tracking-[0.2em] eyebrows), documented as a scale comment in src/index.css. Extended Button with a 'type' prop and two light-background variants ('navy', 'subtle') so ContactPage's hand-rolled form buttons could be replaced with the shared component instead of duplicating its visual language. Left the shadcn semantic tokens (--primary, --secondary, etc.) in place since src/components/ui/button.tsx depends on them, but documented the unused .dark block instead of leaving it as silent dead CSS."
     }
   ],
   "evidence": [

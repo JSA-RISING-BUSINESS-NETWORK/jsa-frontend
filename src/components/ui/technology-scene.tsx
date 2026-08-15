@@ -1,7 +1,9 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Float } from '@react-three/drei'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import type { Group } from 'three'
+import { brandColors } from '@/lib/brand-colors'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
 
 function TechnologyForm({ reducedMotion }: { reducedMotion: boolean }) {
   const groupRef = useRef<Group>(null)
@@ -21,11 +23,11 @@ function TechnologyForm({ reducedMotion }: { reducedMotion: boolean }) {
       <group ref={groupRef} rotation={[0.2, 0.35, 0.1]}>
         <mesh>
           <boxGeometry args={[2.5, 2.5, 2.5]} />
-          <meshBasicMaterial color="#0b1b33" transparent opacity={0.1} wireframe />
+          <meshBasicMaterial color={brandColors.navy} transparent opacity={0.1} wireframe />
         </mesh>
         <mesh rotation={[0.35, 0.2, 0]} scale={0.72}>
           <boxGeometry args={[2.5, 2.5, 2.5]} />
-          <meshBasicMaterial color="#deb13b" transparent opacity={0.16} wireframe />
+          <meshBasicMaterial color={brandColors.gold} transparent opacity={0.16} wireframe />
         </mesh>
       </group>
     </Float>
@@ -33,17 +35,7 @@ function TechnologyForm({ reducedMotion }: { reducedMotion: boolean }) {
 }
 
 export function TechnologyScene() {
-  const [reducedMotion, setReducedMotion] = useState(false)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateMotionPreference = () => setReducedMotion(mediaQuery.matches)
-
-    updateMotionPreference()
-    mediaQuery.addEventListener('change', updateMotionPreference)
-
-    return () => mediaQuery.removeEventListener('change', updateMotionPreference)
-  }, [])
+  const reducedMotion = useReducedMotion()
 
   return (
     <div

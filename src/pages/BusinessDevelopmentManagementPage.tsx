@@ -1,12 +1,10 @@
 import {
   ArrowRight,
   ArrowUpRight,
-  Code2,
-  Globe2,
-  Layers3,
-  Search,
-  ShoppingCart,
-  Sparkles,
+  BriefcaseBusiness,
+  Handshake,
+  TrendingUp,
+  UsersRound,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/Button'
@@ -14,62 +12,62 @@ import { ServiceScene } from '../components/ServiceScene'
 
 const capabilities = [
   {
-    title: 'Websites & web platforms',
-    description: 'High-performing digital foundations that make your offer easier to understand and trust.',
-    icon: Globe2,
+    title: 'Growth strategy',
+    description: 'Shape a focused growth plan around the markets, offers, partnerships, and opportunities with the strongest potential.',
+    icon: TrendingUp,
   },
   {
-    title: 'Apps & custom products',
-    description: 'Useful digital products shaped around your customers, internal workflows, and growth goals.',
-    icon: Code2,
+    title: 'Business development',
+    description: 'Create a more intentional path from relationship-building to qualified opportunities and sustainable commercial progress.',
+    icon: Handshake,
   },
   {
-    title: 'E-commerce experiences',
-    description: 'Clear journeys from discovery to checkout, with the structure to support repeatable sales.',
-    icon: ShoppingCart,
+    title: 'Operations support',
+    description: 'Bring structure to the work behind the growth plan with better priorities, coordination, and operating discipline.',
+    icon: BriefcaseBusiness,
   },
   {
-    title: 'SEO & discoverability',
-    description: 'Search-ready content and technical foundations that help the right audience find you.',
-    icon: Search,
+    title: 'Project & team management',
+    description: 'Help teams stay aligned, accountable, and moving through important projects with clearer ownership and momentum.',
+    icon: UsersRound,
   },
 ]
 
 const deliverySteps = [
-  ['01', 'Clarify', 'We align the digital opportunity with your business priorities and audience.'],
-  ['02', 'Design', 'We turn the strategy into a clear, credible experience your customers can use.'],
-  ['03', 'Deliver', 'We build, test, launch, and improve the system with disciplined delivery.'],
+  ['01', 'Position', 'We clarify the growth ambition, the strongest opportunities, and the value the business can credibly take to market.'],
+  ['02', 'Mobilize', 'We turn the direction into a practical plan with workstreams, owners, relationships, and commercial next steps.'],
+  ['03', 'Scale', 'We strengthen the operating rhythm around the work so progress becomes repeatable, visible, and easier to manage.'],
 ]
 
-export function DigitalSolutionsPage() {
+export function BusinessDevelopmentManagementPage() {
   return (
     <main className="bg-brand-cream">
       <section className="relative isolate overflow-hidden bg-brand-navy pb-24 pt-36 text-brand-cream sm:pb-28 sm:pt-44">
-        <ServiceScene variant="digital" />
+        <ServiceScene variant="development" />
         <div className="pointer-events-none absolute right-[-12rem] top-[-12rem] size-[32rem] rounded-full border border-brand-gold/15" aria-hidden="true" />
         <div className="pointer-events-none absolute bottom-[-14rem] left-[-10rem] size-[28rem] rounded-full border border-white/8" aria-hidden="true" />
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-8">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold">
-              Service pillar / 01
+              Service pillar / 05
             </p>
             <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[0.95] text-brand-cream sm:text-7xl">
-              Digital solutions that move the business forward.
+              Turn good opportunities into managed growth.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
-              Websites, apps, e-commerce, SEO, and UI/UX for modern brands that need a sharper
-              digital presence and a stronger path to growth.
+              Growth strategy, business development, operations support, project management, and
+              teams for businesses ready to move with more intention.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button to="/contact" variant="primary">
-                Start a conversation
+                Plan the next stage
                 <ArrowRight className="size-5" aria-hidden="true" />
               </Button>
               <Link
                 to="#capabilities"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-bold text-white/72 transition hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
               >
-                Explore the offer
+                Explore the capability
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </Link>
             </div>
@@ -79,31 +77,31 @@ export function DigitalSolutionsPage() {
             <div className="flex items-center justify-between border-b border-white/10 pb-5">
               <div>
                 <p className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-brand-gold">
-                  Digital delivery system
+                  Growth operating model
                 </p>
-                <p className="mt-2 text-xl font-black text-white">Clarity into capability.</p>
+                <p className="mt-2 text-xl font-black text-white">Position. Mobilize. Scale.</p>
               </div>
               <span className="inline-flex size-11 items-center justify-center rounded-full bg-brand-gold text-brand-navy">
-                <Sparkles className="size-5" aria-hidden="true" />
+                <Handshake className="size-5" aria-hidden="true" />
               </span>
             </div>
             <div className="mt-5 space-y-3">
-              {['Position the brand', 'Build the experience', 'Measure the outcome'].map(
-                (item, index) => (
-                  <div
-                    key={item}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/6 px-4 py-4"
-                  >
-                    <span className="flex items-center gap-3 text-sm font-bold text-white/86">
-                      <span className="text-[0.65rem] tracking-[0.18em] text-brand-gold">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      {item}
-                    </span>
-                    <ArrowUpRight className="size-4 text-white/40" aria-hidden="true" />
-                  </div>
-                ),
-              )}
+              {[
+                ['01', 'Focus the opportunity'],
+                ['02', 'Coordinate the work'],
+                ['03', 'Build repeatable momentum'],
+              ].map(([number, item]) => (
+                <div
+                  key={number}
+                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/6 px-4 py-4"
+                >
+                  <span className="flex items-center gap-3 text-sm font-bold text-white/86">
+                    <span className="text-[0.65rem] tracking-[0.18em] text-brand-gold">{number}</span>
+                    {item}
+                  </span>
+                  <ArrowUpRight className="size-4 text-white/40" aria-hidden="true" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -116,11 +114,11 @@ export function DigitalSolutionsPage() {
               What we deliver
             </p>
             <h2 className="mt-4 text-4xl font-black leading-tight text-brand-navy sm:text-5xl">
-              The digital layer your growth strategy needs.
+              Growth needs a system behind it.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-brand-slate">
-              One connected capability across the places your customers discover, evaluate, and
-              choose your business.
+              We connect commercial direction with the people, projects, and operating habits
+              needed to keep progress moving.
             </p>
           </div>
 
@@ -159,7 +157,7 @@ export function DigitalSolutionsPage() {
               How we work
             </p>
             <h2 className="mt-4 text-4xl font-black leading-tight text-brand-navy sm:text-5xl">
-              Clear steps. Useful momentum.
+              Direction that becomes momentum.
             </h2>
           </div>
           <div className="border-y border-brand-border">
@@ -181,7 +179,7 @@ export function DigitalSolutionsPage() {
               Ready when you are
             </p>
             <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight sm:text-4xl">
-              Bring your next digital opportunity into focus.
+              Build the structure behind your next stage of growth.
             </h2>
           </div>
           <Button to="/contact" variant="primary">
