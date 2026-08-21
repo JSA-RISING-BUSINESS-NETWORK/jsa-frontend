@@ -53,11 +53,11 @@ function DisplayCard({
     </>
   )
   const classes = cn(
-    "group absolute left-1/2 top-0 flex h-32 w-[min(42rem,86vw)] -translate-x-1/2 -skew-y-[6deg] flex-col justify-between overflow-hidden rounded-xl border border-brand-border bg-white px-5 py-4 text-brand-navy shadow-[0_18px_50px_rgba(11,27,51,0.12)] transition-all duration-500 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[34%] after:bg-gradient-to-l after:from-brand-cream/90 after:to-transparent after:content-[''] hover:z-50 hover:-translate-y-4 hover:scale-[1.04] hover:border-brand-gold/70 hover:shadow-[0_30px_80px_rgba(11,27,51,0.2)] focus-visible:z-50 focus-visible:-translate-y-4 focus-visible:scale-[1.04] focus-visible:border-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-white motion-reduce:transition-none motion-reduce:hover:-translate-y-0 motion-reduce:hover:scale-100 [&>*]:relative [&>*]:z-10",
+    "group absolute left-1/2 top-0 flex h-36 w-[min(44rem,88vw)] -translate-x-1/2 -skew-y-[4deg] flex-col justify-between overflow-hidden rounded-xl border border-brand-border bg-white px-5 py-4 text-brand-navy shadow-[0_18px_50px_rgba(11,27,51,0.12)] transition-all duration-500 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[34%] after:bg-gradient-to-l after:from-brand-cream/90 after:to-transparent after:content-[''] hover:z-50 hover:-translate-y-4 hover:scale-[1.04] hover:border-brand-gold/70 hover:shadow-[0_30px_80px_rgba(11,27,51,0.2)] focus-visible:z-50 focus-visible:-translate-y-4 focus-visible:scale-[1.04] focus-visible:border-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-white motion-reduce:transition-none motion-reduce:hover:-translate-y-0 motion-reduce:hover:scale-100 [&>*]:relative [&>*]:z-10",
     className,
   )
   const style = {
-    top: `${stackIndex * 4.25}rem`,
+    top: `${stackIndex * 4}rem`,
     zIndex: stackIndex + 1,
   }
 
