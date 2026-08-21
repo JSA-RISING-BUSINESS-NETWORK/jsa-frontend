@@ -4,7 +4,7 @@ import { Badge } from '../components/Badge'
 import { Card } from '../components/Card'
 import { SectionHeading } from '../components/SectionHeading'
 import { ValueProp } from '../components/ValueProp'
-import { HeroPanel } from '../components/hero/HeroPanel'
+import { ServiceNetwork } from '../components/ui/service-network'
 import {
   heroStats,
   servicePillars,
@@ -37,11 +37,6 @@ const ValuePropsScene = lazy(() =>
   })),
 )
 
-const ServicePillarsScene = lazy(() =>
-  import('../components/ui/service-pillars-scene').then((module) => ({
-    default: module.ServicePillarsScene,
-  })),
-)
 
 export function Home() {
   return (
@@ -105,44 +100,45 @@ export function Home() {
 
       <section
         id="service-pillars"
-        className="relative isolate overflow-hidden border-y border-brand-border bg-white py-24 sm:py-28 lg:py-32"
+        className="relative isolate overflow-hidden border-y border-brand-navy bg-brand-navy py-24 text-white sm:py-28 lg:py-32"
       >
-        <Suspense fallback={null}>
-          <ServicePillarsScene />
-        </Suspense>
+        <div className="absolute inset-0 opacity-30" aria-hidden="true">
+          <div className="service-network-grid h-full w-full" />
+        </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 flex flex-col gap-5 border-b border-brand-border pb-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold-dark">
+          <div className="mb-14 flex flex-col gap-6 border-b border-white/15 pb-7 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-gold">
               Service system / 09 pathways
             </p>
-            <p className="max-w-md text-sm leading-6 text-brand-slate sm:text-right">
-              One connected platform for the decisions, systems, delivery, and growth work behind a stronger business.
+            <p className="max-w-md text-sm leading-6 text-white/65 sm:text-right">
+              A connected operating model for the decisions, systems, delivery, and growth work behind a stronger business.
             </p>
           </div>
 
-          <div className="grid gap-16 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-20">
-            <div>
+          <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-20">
+            <div className="max-w-lg">
               <SectionHeading
                 eyebrow="Services"
-                title="Find the capability your next stage needs."
-                description="Nine focused service lines, connected by one practical operating model: build what matters, strengthen how it works, and create room to scale."
+                title="The right capability, connected at the right moment."
+                description="Nine focused service lines working as one network, so your next move has the strategy, systems, and support to hold it up."
+                variant="dark"
               />
-              <dl className="mt-10 max-w-md divide-y divide-brand-border border-y border-brand-border">
+              <dl className="mt-10 max-w-md divide-y divide-white/15 border-y border-white/15">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="flex items-end justify-between gap-6 py-5">
-                    <dt className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-brand-slate">
+                    <dt className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white/55">
                       {stat.label}
                     </dt>
-                    <dd className="text-3xl font-black leading-none text-brand-navy">{stat.value}</dd>
+                    <dd className="text-3xl font-black leading-none text-brand-gold">{stat.value}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-6 max-w-md text-xs font-semibold uppercase tracking-[0.14em] text-brand-slate/70">
-                Hover or focus a pillar to bring it forward
+              <p className="mt-6 max-w-md text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
+                Explore the network. Follow the link that fits your next move.
               </p>
             </div>
 
-            <HeroPanel
+            <ServiceNetwork
               pillars={servicePillars.map((service) => ({
                 number: service.number,
                 title: service.title,

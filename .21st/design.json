@@ -364,7 +364,7 @@
     {
       "date": "2026-08-05",
       "scope": "service-pillars",
-      "decision": "Use a white-theme adaptation of the 21st.dev DisplayCards pattern for the service pillars: nine wide cards in one centered vertical stack, no surrounding panel background, with clear service metadata and hover/focus bringing the selected card forward."
+      "decision": "Use a connected service-network constellation for the service pillars: nine responsive linked nodes orbiting a central operating model, with active glow, hover/focus feedback, route links, and a readable connected list on mobile."
     },
     {
       "date": "2026-08-07",
