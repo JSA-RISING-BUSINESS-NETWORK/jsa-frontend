@@ -60,17 +60,17 @@ export function Layout() {
         >
           <Link
             to="/"
-            className="pointer-events-auto inline-flex items-center gap-3 rounded-full border border-white/12 bg-brand-slate/18 px-3 py-2 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_10px_28px_rgba(3,10,24,0.1)] outline-none backdrop-blur-md backdrop-saturate-125 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-navy"
+            className="pointer-events-auto inline-flex items-center gap-3 rounded-2xl border border-white/14 bg-brand-slate/18 px-2.5 py-2 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_10px_28px_rgba(3,10,24,0.1)] outline-none backdrop-blur-md backdrop-saturate-125 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-navy"
             aria-label="JSA Rising Business Network home"
           >
             <img
               src={logoImage}
               alt="JSA Rising Business Network logo"
-              className="size-10 rounded-full border border-brand-gold/30 object-cover shadow-sm shadow-brand-navy/20"
+              className="size-11 rounded-xl border border-brand-gold/35 bg-white p-1 object-contain shadow-sm shadow-brand-navy/20"
             />
             <span className="hidden leading-tight sm:block">
-              <span className="block text-base font-extrabold text-white">JSA Rising</span>
-              <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              <span className="block text-[0.95rem] font-extrabold leading-none text-white">JSA Rising</span>
+              <span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-brand-muted">
                 Business Network
               </span>
             </span>
